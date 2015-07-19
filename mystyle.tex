@@ -19,9 +19,11 @@ anchorcolor=mylinkcolor]{hyperref}
 \newlength{\mylcolwidth}
 \setlength{\mylcolwidth}{1.05in}
 
+\newcommand{\positiontitle}{}
 \newcommand{\docutilsroledescription}[1]{\phantomsection%
-    \addcontentsline{toc}{subsection}{#1}{\bf \textsf{#1}} \\ }
-\newcommand{\docutilsroleorganization}[1]{\textsf{#1}}
+    \renewcommand{\positiontitle}{#1}{\bf \textsf{#1}} \\ }
+\newcommand{\docutilsroleorganization}[1]{%
+    \addcontentsline{toc}{subsection}{\positiontitle, #1}\textsf{#1}}
 \newcommand{\docutilsrolelocation}[1]{~\hfill\textsf{#1} }
 \makeatletter
 % save important information for future use
