@@ -1,0 +1,95 @@
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage{color}
+\definecolor{mylinkcolor}{rgb}{0,0,0.4}
+\usepackage[pdfstartview={FitH},
+colorlinks=true,
+linkcolor=mylinkcolor,
+urlcolor=mylinkcolor,
+anchorcolor=mylinkcolor]{hyperref}
+\addtolength{\textheight}{\footskip}
+\setlength{\footskip}{12pt}
+\setlength{\voffset}{20pt}
+\setlength{\headheight}{25pt}
+\setlength{\parindent}{0pt}
+
+\newlength{\mylcolwidth}
+\setlength{\mylcolwidth}{1.05in}
+
+\newcommand{\docutilsroledescription}[1]{\phantomsection%
+    \addcontentsline{toc}{section}{#1}{\bf \textsf{#1}} \\ }
+\newcommand{\docutilsroleorganization}[1]{\textsf{#1}}
+\newcommand{\docutilsrolelocation}[1]{~\hfill\textsf{#1} }
+\makeatletter
+% save important information for future use
+\newcommand{\docutilsroleemail}[1]{\newcommand{\@infoemail}{#1}}%
+\newcommand{\docutilsrolephone}[1]{\newcommand{\@infophone}{#1}}%
+\newcommand{\docutilsrolestreet}[1]{\newcommand{\@infostreet}{#1}}%
+\newcommand{\docutilsrolecity}[1]{\newcommand{\@infocity}{#1}}%
+\makeatother
+
+\newcounter{descnesting}
+\renewenvironment{description}
+    {\begin{list}{}%
+        { \stepcounter{descnesting}%
+        \ifthenelse{\value{descnesting} > 1}%
+            {\renewcommand{\makelabel}[1]{##1 }%
+            \settowidth{\labelwidth}{Technology: }
+            \setlength{\topsep}{-.2em}%
+            \setlength{\partopsep}{0pt}%
+            \setlength{\itemindent}{0pt}%
+            \setlength{\leftmargin}{\labelwidth + \labelsep - 2.2em}%
+            }%
+            {\renewcommand{\makelabel}[1]{\raisebox{0pt}[\baselineskip][0pt]%
+                {\parbox[t]{\mylcolwidth - 0.65em}{\raggedright\bf \textsf{##1}}\hfil}}%
+            \setlength{\labelwidth}{\mylcolwidth}%
+            \setlength{\leftmargin}{\labelwidth+\labelsep}%
+            }%
+        }%
+    }%
+    {\end{list}\addtocounter{descnesting}{-1}}
+
+\newlength{\myblistmargin}
+\newlength{\myblisttopsep}
+\newlength{\myblistitemsepadd}
+\renewenvironment{itemize}
+    { \ifthenelse{\value{descnesting} < 1}%
+        {\setlength{\myblistmargin}{\mylcolwidth + .5em}%
+         \setlength{\myblistitemsepadd}{-.4em}%
+         \setlength{\myblisttopsep}{.5em}}%
+        {\setlength{\myblistmargin}{0em}%
+         \setlength{\myblistitemsepadd}{0em}%
+         \setlength{\myblisttopsep}{0em}}%
+        \begin{list}{\labelitemi}%
+        {\setlength{\itemindent}{0pt}%
+         \setlength{\topsep}{\myblisttopsep}%
+         \setlength{\partopsep}{0pt}%
+         \addtolength{\itemsep}{\myblistitemsepadd}%
+         \settowidth{\labelwidth}{\labelitemi}%
+         \setlength{\leftmargin}{\myblistmargin + \labelwidth + \labelsep}%
+        }%
+    }%
+    {\end{list}}
+
+\makeatletter
+% we'll use fancyheadings to make title
+% don't empty out \@title, just request alternate header
+\def\maketitle{\thispagestyle{plain}}%
+
+\renewcommand{\section}{\@startsection
+    {section}{1}{0mm}{0.7\baselineskip}{0.3\baselineskip}%
+    {\Large \sffamily \bfseries}}%
+
+\newcommand{\infosep}{\makebox[2em][c]{$\bullet$}}
+\newcommand{\MYNAME}{{\Huge \sffamily \bfseries \@title}}
+\newcommand{\MyName}{{\Large \sffamily \bfseries \@title}}
+\newcommand{\MYINFO}{{\sffamily \shortstack[r]{\@infostreet \infosep \@infocity \\ \@infoemail \infosep \@infophone}}}
+\newcommand{\MyInfo}{{\sffamily \@infoemail \infosep \@infophone}}
+\makeatother
+
+\lhead[\fancyplain{\MYNAME}{\MyName}]{\fancyplain{\MYNAME}{\MyName}}
+\rhead[\fancyplain{\MYINFO}{\MyInfo}]{\fancyplain{\MYINFO}{\MyInfo}}
+\cfoot[]{}
+\renewcommand{\plainheadrulewidth}{0.4pt}
+\pagestyle{fancyplain}

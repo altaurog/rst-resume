@@ -1,0 +1,89 @@
+body { text-align:center; background:#88dd66;}
+
+.document
+{
+    width:38em;
+    margin-right: auto;
+    margin-left: auto;
+    text-align:left;
+    padding:.4em 2em .4em 2em;
+    border:1px solid #00459A;
+    background:white;
+}
+
+h1 ,
+span,
+.docutils dt
+{
+    font-family: Arial, sans-serif;
+}
+
+h1.title 
+{
+    position:absolute;
+    width:19em;
+    padding-bottom:.2em;
+    margin-bottom:.8em;
+    border-bottom:1px solid;
+}
+
+.document p 
+{
+    width:20em;
+    float:right;
+    text-align:right;
+}
+
+span {display:block;font-weight:bold; font-size:13px;}
+
+.city, .phone 
+{
+    float:right;
+    padding-left:0.8em;
+}
+
+.street:after, .email:after {content:"\A0\A0\A0\2022"}
+
+.section p
+{
+    width:auto;
+    float:none;
+    text-align:left;
+}
+
+.section h1 
+{
+    clear:both;
+    padding-top:.4em;
+    font-size:22px;
+}
+
+.description, .organization, .location,
+.docutils dt
+{font-weight:bold; font-size:13px;}
+
+.organization {float:left; clear:left;}
+
+.location { float:right; clear:right; margin-bottom:0.5em;}
+
+.section ul.simple
+{
+margin-left:5em;
+padding-left:0em;
+}
+
+.section h1
+{color:#00459A;}
+.email,.phone,.city,.street,
+.organization, .location {color:#404040;}
+.docutils dl {clear:both;}
+
+
+.docutils dd {margin:0em 0em 2.5em 0em; clear:both;}
+.docutils dd p {clear:both; margin: 0.4em 0em 0.6em 0em;}
+.docutils dd p.first {clear:none;margin:0em;padding:0em;}
+.docutils ul.simple{clear:both; margin-left:1.1em; padding-left:0em;}
+.docutils ul.simple li {margin-bottom:.2em;}
+.docutils dd table.field-list {margin:.2em 0em 0em 0em;}
+th {font-weight:normal;}
+a {color:#000055; text-decoration:none;}

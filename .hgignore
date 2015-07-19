@@ -1,0 +1,10 @@
+syntax:glob
+*.pdf
+*.aux
+*.log
+*.out
+*.swf
+*.xml
+*.html
+*.rtf
+*.txt
