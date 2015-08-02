@@ -24,6 +24,8 @@ all: $(PDFOUT) $(HTMLOUT)
 
 %.pdf: %.tex $(LATEXSTYLE)
 	$(PDF) $(PDFOPTS) $<
+	$(RM) $@
+	$(PDF) $(PDFOPTS) $<
 
 %.html: %.rst $(RSTINCLUDE)
 	perl -ple '$$_ .= <> if /^\d{4}/; chomp;' $< | $(RST2HTML) $(RSTHTMLOPTS) $(HTMLLINKCSS) > $@
