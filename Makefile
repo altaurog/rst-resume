@@ -18,7 +18,7 @@ RSTLATEXOPTS= --stylesheet=$(LATEXSTYLE) \
 			  --use-latex-docinfo  \
 			  --strip-comments
 
-PDFOPTS     = -quiet
+PDFOPTS     =
 
 all: $(PDFOUT) $(HTMLOUT)
 
