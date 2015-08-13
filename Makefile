@@ -2,6 +2,7 @@ BASE        = resume
 
 PDFOUT      = $(BASE).pdf
 HTMLOUT     = $(BASE).html
+TXTOUT      = $(BASE).txt
 
 RSTINCLUDE  = utils.rst
 LATEXSTYLE  = mystyle.tex
@@ -20,7 +21,7 @@ RSTLATEXOPTS= --stylesheet=$(LATEXSTYLE) \
 
 PDFOPTS     =
 
-all: $(PDFOUT) $(HTMLOUT)
+all: $(PDFOUT) $(HTMLOUT) $(TXTOUT)
 
 %.pdf: %.tex $(LATEXSTYLE)
 	$(PDF) $(PDFOPTS) $<
@@ -29,6 +30,9 @@ all: $(PDFOUT) $(HTMLOUT)
 
 %.html: %.rst $(RSTINCLUDE)
 	perl -ple '$$_ .= <> if /^\d{4}/; chomp;' $< | $(RST2HTML) $(RSTHTMLOPTS) $(HTMLLINKCSS) > $@
+
+%.txt: %.rst
+	./plaintext.sh < $< > $@
 
 %.tex: %.rst $(RSTINCLUDE)
 	$(RST2LATEX) $(RSTLATEXOPTS) $< $@
