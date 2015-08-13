@@ -31,7 +31,7 @@ all: $(PDFOUT) $(HTMLOUT) $(TXTOUT)
 %.html: %.rst $(RSTINCLUDE)
 	perl -ple '$$_ .= <> if /^\d{4}/; chomp;' $< | $(RST2HTML) $(RSTHTMLOPTS) $(HTMLLINKCSS) > $@
 
-%.txt: %.rst
+%.txt: %.rst plaintext.sh
 	./plaintext.sh < $< > $@
 
 %.tex: %.rst $(RSTINCLUDE)
