@@ -12,3 +12,4 @@
 
 .. role:: location
 
+.. role:: tech

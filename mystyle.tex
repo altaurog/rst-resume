@@ -25,6 +25,8 @@ anchorcolor=mylinkcolor]{hyperref}
 \newcommand{\docutilsroleorganization}[1]{%
     \addcontentsline{toc}{subsection}{\positiontitle, #1}\textsf{#1}}
 \newcommand{\docutilsrolelocation}[1]{~\hfill\textsf{#1} }
+\newcommand{\docutilsroletech}[1]{%
+  ~\hfill\textsf{\textcolor[rgb]{.55,.55,.55}{#1}} }
 \makeatletter
 % save important information for future use
 \newcommand{\docutilsroleemail}[1]{\newcommand{\@infoemail}{#1}}%
