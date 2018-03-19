@@ -1,8 +1,10 @@
-reStructureText Resume
+reStructuredText Resume
 =======================
 
-Generate a nice-looking pdf resume from reStructureText source
+Generate a nice-looking pdf resume from reStructuredText_ source
 using rst2latex and pdflatex.
+
+.. _reStructuredText: http://docutils.sourceforge.net/rst.html
 
 Resume source like this:
 
