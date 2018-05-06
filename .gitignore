@@ -1,5 +1,7 @@
-resume.rst
-resume.tex
+.hgignore
+.hg/
+*.rst
+*.tex
 *.pdf
 *.aux
 *.log
