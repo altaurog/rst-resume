@@ -3,6 +3,7 @@
 \usepackage[expansion=alltext]{microtype}
 \usepackage{fontawesome}
 \usepackage{calc}
+\usepackage[explicit]{titlesec}
 \usepackage{ifthen}
 \usepackage{fancyhdr}
 \usepackage{color}
@@ -14,12 +15,13 @@ urlcolor=mylinkcolor,
 anchorcolor=mylinkcolor]{hyperref}
 \addtolength{\textheight}{\footskip}
 \setlength{\footskip}{12pt}
-\setlength{\voffset}{0pt}
+\setlength{\voffset}{-10pt}
 \setlength{\headheight}{25pt}
 \setlength{\parindent}{0pt}
 
 \newlength{\mylcolwidth}
-\setlength{\mylcolwidth}{1.05in}
+\settowidth{\mylcolwidth}{\Large \sffamily \bfseries Experience}
+\addtolength{\mylcolwidth}{9pt}
 
 \newcommand{\positiontitle}{}
 \newcommand{\docutilsroledescription}[1]{\phantomsection%
@@ -58,7 +60,7 @@ anchorcolor=mylinkcolor]{hyperref}
             \setlength{\leftmargin}{\labelwidth + \labelsep - 2.2em}%
             }%
             {\renewcommand{\makelabel}[1]{\raisebox{0pt}[\baselineskip][0pt]%
-                {\parbox[t]{\mylcolwidth - 0.65em}{\raggedleft\sffamily \bfseries ##1}\hfil}}%
+                {\parbox[t]{\mylcolwidth - 10pt}{\raggedleft\sffamily \bfseries ##1}\hfil}}%
             \setlength{\labelwidth}{\mylcolwidth}%
             \setlength{\leftmargin}{\labelwidth+\labelsep}%
             }%
@@ -71,8 +73,7 @@ anchorcolor=mylinkcolor]{hyperref}
 \newlength{\myblistitemsepadd}
 \renewenvironment{itemize}
     { \ifthenelse{\value{descnesting} < 1}%
-        {\setlength{\myblistmargin}{\mylcolwidth + .5em}%
-         \setlength{\myblistitemsepadd}{-.4em}%
+        {\setlength{\myblistitemsepadd}{-.4em}%
          \setlength{\myblisttopsep}{.5em}}%
         {\setlength{\myblistmargin}{0em}%
          \setlength{\myblistitemsepadd}{0em}%
@@ -93,9 +94,13 @@ anchorcolor=mylinkcolor]{hyperref}
 % don't empty out \@title, just request alternate header
 \def\maketitle{\thispagestyle{plain}}%
 
-\renewcommand{\section}{\@startsection
-    {section}{1}{0mm}{0.7\baselineskip}{0.3\baselineskip}%
-    {\Large \sffamily \bfseries}}%
+\titleformat{\section}
+{\Large \sffamily \bfseries}
+{}
+{0pt}
+{\parbox[t]{\mylcolwidth + 26pt}{\raggedleft #1}}
+
+\titlespacing{\section}{-35pt}{8pt}{0pt}
 
 \newcommand{\infosep}{\makebox[2em][c]{$\bullet$}}
 \newcommand{\MYNAME}{{\Huge \sffamily \bfseries \@title}}
