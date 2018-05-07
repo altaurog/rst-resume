@@ -1,5 +1,11 @@
 .. role:: email
 
+.. role:: github
+
+.. role:: stackoverflow
+
+.. role:: linkedin
+
 .. role:: phone
 
 .. role:: street

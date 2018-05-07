@@ -1,6 +1,7 @@
 \usepackage{fullpage}
 \usepackage[sfdefault,scaled=.95]{FiraSans}
 \usepackage[expansion=alltext]{microtype}
+\usepackage{fontawesome}
 \usepackage{calc}
 \usepackage{ifthen}
 \usepackage{fancyhdr}
@@ -30,7 +31,15 @@ anchorcolor=mylinkcolor]{hyperref}
   ~\hfill\textsf{\textcolor[rgb]{.55,.55,.55}{#1}} }
 \makeatletter
 % save important information for future use
-\newcommand{\docutilsroleemail}[1]{\newcommand{\@infoemail}{#1}}%
+\newcommand\infolinks[0]{}
+\newcommand{\docutilsroleemail}[1]{\g@addto@macro\infolinks{%
+    \hspace{1em}\href{mailto:#1}{\faEnvelope}}}%
+\newcommand{\docutilsrolegithub}[1]{\g@addto@macro\infolinks{%
+    \hspace{1em}\href{#1}{\faGithub}}}%
+\newcommand{\docutilsrolestackoverflow}[1]{\g@addto@macro\infolinks{%
+    \hspace{1em}\href{#1}{\faStackOverflow}}}%
+\newcommand{\docutilsrolelinkedin}[1]{\g@addto@macro\infolinks{%
+    \hspace{1em}\href{#1}{\faLinkedin}}}%
 \newcommand{\docutilsrolephone}[1]{\newcommand{\@infophone}{#1}}%
 \newcommand{\docutilsrolestreet}[1]{\newcommand{\@infostreet}{#1}}%
 \newcommand{\docutilsrolecity}[1]{\newcommand{\@infocity}{#1}}%
@@ -49,7 +58,7 @@ anchorcolor=mylinkcolor]{hyperref}
             \setlength{\leftmargin}{\labelwidth + \labelsep - 2.2em}%
             }%
             {\renewcommand{\makelabel}[1]{\raisebox{0pt}[\baselineskip][0pt]%
-                {\parbox[t]{\mylcolwidth - 0.65em}{\raggedright\sffamily \bfseries ##1}\hfil}}%
+                {\parbox[t]{\mylcolwidth - 0.65em}{\raggedleft\sffamily \bfseries ##1}\hfil}}%
             \setlength{\labelwidth}{\mylcolwidth}%
             \setlength{\leftmargin}{\labelwidth+\labelsep}%
             }%
@@ -77,7 +86,7 @@ anchorcolor=mylinkcolor]{hyperref}
          \setlength{\leftmargin}{\myblistmargin + \labelwidth + \labelsep}%
         }%
     }%
-    {\end{list}\vspace{.7\baselineskip}}
+    {\end{list}}
 
 \makeatletter
 % we'll use fancyheadings to make title
@@ -91,8 +100,8 @@ anchorcolor=mylinkcolor]{hyperref}
 \newcommand{\infosep}{\makebox[2em][c]{$\bullet$}}
 \newcommand{\MYNAME}{{\Huge \sffamily \bfseries \@title}}
 \newcommand{\MyName}{{\Large \sffamily \bfseries \@title}}
-\newcommand{\MYINFO}{{\sffamily \@infoemail}}
-\newcommand{\MyInfo}{\MYINFO}
+\newcommand{\MYINFO}{{\Large \sffamily \infolinks}}
+\newcommand{\MyInfo}{}
 \makeatother
 
 \lhead[\fancyplain{\MYNAME}{\MyName}]{\fancyplain{\MYNAME}{\MyName}}
