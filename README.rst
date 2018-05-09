@@ -17,13 +17,9 @@ Resume source like this:
 
     .. include:: utils.rst
 
-    :city:`Mesquite, TX`
-    :street:`4201 Hillbrook Ln`
-    :phone:`469-325-1145`
     :email:`ndavis@example.com`
 
-    Summary
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 
 
     Experience
