@@ -36,7 +36,7 @@ all: $(PDFOUT) $(HTMLOUT) $(TXTOUT)
 
 %.tex: %.rst $(RSTINCLUDE)
 	$(RST2LATEX) $(RSTLATEXOPTS) $< $@
-	sed -i 's/LaTeX /\\LaTeX\\ /g;s/LaTeX/\\LaTeX /g;s/ TeX / \\TeX\\ /g;s/ TeX/ \\TeX /g' $@
+	sed -i 's/LaTeX/\\latex{}/g;s/TeX/\\TeX{}/g' $@
 
 # sed -ri 's/\b[A-Z]{3,}\b/\\textsc{\L\0}/g' $@
 
