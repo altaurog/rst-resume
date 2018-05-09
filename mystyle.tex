@@ -34,14 +34,13 @@ anchorcolor=mylinkcolor]{hyperref}
 \makeatletter
 % save important information for future use
 \newcommand\infolinks[0]{}
-\newcommand{\docutilsroleemail}[1]{\g@addto@macro\infolinks{%
-    \hspace{1em}\href{mailto:#1}{\faEnvelope}}}%
+\newcommand{\docutilsroleemail}[1]{\newcommand{\@infoemail}{\href{mailto:#1}{#1}}}%
 \newcommand{\docutilsrolegithub}[1]{\g@addto@macro\infolinks{%
-    \hspace{1em}\href{#1}{\faGithub}}}%
+    \hspace{.7em}\href{#1}{\faGithub}}}%
 \newcommand{\docutilsrolestackoverflow}[1]{\g@addto@macro\infolinks{%
-    \hspace{1em}\href{#1}{\faStackOverflow}}}%
+    \hspace{.7em}\href{#1}{\faStackOverflow}}}%
 \newcommand{\docutilsrolelinkedin}[1]{\g@addto@macro\infolinks{%
-    \hspace{1em}\href{#1}{\faLinkedin}}}%
+    \hspace{.7em}\href{#1}{\faLinkedin}}}%
 \newcommand{\docutilsrolephone}[1]{\newcommand{\@infophone}{#1}}%
 \newcommand{\docutilsrolestreet}[1]{\newcommand{\@infostreet}{#1}}%
 \newcommand{\docutilsrolecity}[1]{\newcommand{\@infocity}{#1}}%
@@ -105,7 +104,7 @@ anchorcolor=mylinkcolor]{hyperref}
 \newcommand{\infosep}{\makebox[2em][c]{$\bullet$}}
 \newcommand{\MYNAME}{{\Huge \sffamily \bfseries \@title}}
 \newcommand{\MyName}{{\Large \sffamily \bfseries \@title}}
-\newcommand{\MYINFO}{{\Large \sffamily \infolinks}}
+\newcommand{\MYINFO}{{\sffamily \@infoemail\Large \infolinks}}
 \newcommand{\MyInfo}{}
 \makeatother
 
