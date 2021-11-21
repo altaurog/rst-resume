@@ -25,26 +25,26 @@ anchorcolor=mylinkcolor]{hyperref}
 
 \newcommand{\latex}{{\fontfamily{lmss}\selectfont\LaTeX}}
 \newcommand{\positiontitle}{}
-\newcommand{\docutilsroledescription}[1]{\phantomsection%
+\newcommand{\DUroledescription}[1]{\phantomsection%
     \renewcommand{\positiontitle}{#1}{{\sffamily \bfseries #1}} \\ }
-\newcommand{\docutilsroleorganization}[1]{%
+\newcommand{\DUroleorganization}[1]{%
     \addcontentsline{toc}{subsection}{\positiontitle, #1}{\textsf{#1}}}
-\newcommand{\docutilsrolelocation}[1]{~\hfill\textsf{#1} }
-\newcommand{\docutilsroletech}[1]{%
+\newcommand{\DUrolelocation}[1]{~\hfill\textsf{#1} }
+\newcommand{\DUroletech}[1]{%
   ~\hfill\textsf{\textcolor[rgb]{.55,.55,.55}{#1}} }
 \makeatletter
 % save important information for future use
 \newcommand\infolinks[0]{}
-\newcommand{\docutilsroleemail}[1]{\newcommand{\@infoemail}{\href{mailto:#1}{#1}}}%
-\newcommand{\docutilsrolegithub}[1]{\g@addto@macro\infolinks{%
+\newcommand{\DUroleemail}[1]{\newcommand{\@infoemail}{\href{mailto:#1}{#1}}}%
+\newcommand{\DUrolegithub}[1]{\g@addto@macro\infolinks{%
     \hspace{.7em}\href{#1}{\faGithub}}}%
-\newcommand{\docutilsrolestackoverflow}[1]{\g@addto@macro\infolinks{%
+\newcommand{\DUrolestackoverflow}[1]{\g@addto@macro\infolinks{%
     \hspace{.7em}\href{#1}{\faStackOverflow}}}%
-\newcommand{\docutilsrolelinkedin}[1]{\g@addto@macro\infolinks{%
+\newcommand{\DUrolelinkedin}[1]{\g@addto@macro\infolinks{%
     \hspace{.7em}\href{#1}{\faLinkedin}}}%
-\newcommand{\docutilsrolephone}[1]{\newcommand{\@infophone}{#1}}%
-\newcommand{\docutilsrolestreet}[1]{\newcommand{\@infostreet}{#1}}%
-\newcommand{\docutilsrolecity}[1]{\newcommand{\@infocity}{#1}}%
+\newcommand{\DUrolephone}[1]{\newcommand{\@infophone}{#1}}%
+\newcommand{\DUrolestreet}[1]{\newcommand{\@infostreet}{#1}}%
+\newcommand{\DUrolecity}[1]{\newcommand{\@infocity}{#1}}%
 \makeatother
 
 \newcounter{descnesting}
