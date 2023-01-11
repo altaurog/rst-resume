@@ -8,11 +8,17 @@
 \usepackage{fancyhdr}
 \usepackage{color}
 \definecolor{mylinkcolor}{rgb}{0,0,0.4}
+\definecolor{brbg71}{rgb}{0.55,0.32,0.04}
+\definecolor{brbg72}{rgb}{0.85,0.70,0.40}
+\definecolor{brbg73}{rgb}{0.96,0.91,0.76}
+\definecolor{brbg74}{rgb}{0.91,0.91,0.91}
+\definecolor{brbg76}{rgb}{0.35,0.71,0.67}
+\definecolor{brbg77}{rgb}{0.00,0.40,0.37}
 \usepackage[pdfstartview={FitH},
 colorlinks=true,
-linkcolor=mylinkcolor,
-urlcolor=mylinkcolor,
-anchorcolor=mylinkcolor]{hyperref}
+linkcolor=brbg77,
+urlcolor=brbg77,
+anchorcolor=brbg77]{hyperref}
 \addtolength{\textheight}{\footskip}
 \setlength{\footskip}{12pt}
 \setlength{\voffset}{-10pt}
@@ -29,7 +35,7 @@ anchorcolor=mylinkcolor]{hyperref}
 \newcommand{\DUroledescription}[1]{\phantomsection%
     \renewcommand{\positiontitle}{#1}{{\sffamily \bfseries #1}} \\ }
 \newcommand{\DUroleorganization}[1]{%
-    \addcontentsline{toc}{subsection}{\positiontitle, #1}{\textsf{#1}}}
+    \addcontentsline{toc}{subsection}{\positiontitle, #1}{\firasemibold \textsf{#1}}}
 \newcommand{\DUrolelocation}[1]{~\hfill\textsf{#1} }
 \newcommand{\DUroletech}[1]{%
   ~\hfill\textsf{\textcolor[rgb]{.55,.55,.55}{#1}} }
@@ -95,17 +101,17 @@ anchorcolor=mylinkcolor]{hyperref}
 % don't empty out \@title, just request alternate header
 \def\maketitle{\thispagestyle{plain}}%
 
-\titleformat{\section}
-{\Large \sffamily \bfseries}
+\titleformat{\section}[leftmargin]
+{\fontsize{50}{50} \sffamily \firaheavy }
 {}
 {0pt}
-{\parbox[t]{\mylcolwidth + 26pt}{\raggedleft #1}}
+{\raisebox{-0.365em}[0em][0em]{\color{brbg74} #1}}
 
-\titlespacing{\section}{-35pt}{8pt}{0pt}
+\titlespacing{\section}{0pt}{-0.7em}{0pt}
 
 \newcommand{\infosep}{\makebox[2em][c]{$\bullet$}}
-\newcommand{\MYNAME}{{\Huge \sffamily \bfseries \@title}}
-\newcommand{\MyName}{{\Large \sffamily \bfseries \@title}}
+\newcommand{\MYNAME}{{\Huge \sffamily \bfseries \color{brbg71}\@title}}
+\newcommand{\MyName}{{\Large \sffamily \bfseries \color{brbg71}\@title}}
 \newcommand{\MYINFO}{{\sffamily \@infoemail\Large \infolinks}}
 \newcommand{\MyInfo}{}
 \makeatother
@@ -113,5 +119,8 @@ anchorcolor=mylinkcolor]{hyperref}
 \lhead[\fancyplain{\MYNAME}{\MyName}]{\fancyplain{\MYNAME}{\MyName}}
 \rhead[\fancyplain{\MYINFO}{\MyInfo}]{\fancyplain{\MYINFO}{\MyInfo}}
 \cfoot[]{}
-\renewcommand{\plainheadrulewidth}{0.4pt}
+\renewcommand{\plainheadrulewidth}{0.5pt}
+\renewcommand{\headrule}{\vspace{-7pt}\vbox to 0pt{%
+  \hbox to\headwidth{%
+    \color{brbg71}\leaders\hrule height \plainheadrulewidth\hfill}}}
 \pagestyle{fancyplain}
