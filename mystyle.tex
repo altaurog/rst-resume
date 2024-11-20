@@ -8,10 +8,10 @@
 \usepackage{fancyhdr}
 \usepackage{color}
 \definecolor{mylinkcolor}{rgb}{0,0,0.4}
+\definecolor{heading}{rgb}{0.91,0.91,0.91}
 \definecolor{brbg71}{rgb}{0.55,0.32,0.04}
 \definecolor{brbg72}{rgb}{0.85,0.70,0.40}
 \definecolor{brbg73}{rgb}{0.96,0.91,0.76}
-\definecolor{brbg74}{rgb}{0.91,0.91,0.91}
 \definecolor{brbg76}{rgb}{0.35,0.71,0.67}
 \definecolor{brbg77}{rgb}{0.00,0.40,0.37}
 \usepackage[pdfstartview={FitH},
@@ -105,13 +105,13 @@ anchorcolor=brbg77]{hyperref}
 {\fontsize{50}{50} \sffamily \firaheavy }
 {}
 {0pt}
-{\raisebox{-0.365em}[0em][0em]{\color{brbg74} #1}}
+{\raisebox{-0.365em}[0em][0em]{\color{heading} #1}}
 
 \titlespacing{\section}{0pt}{-0.7em}{0pt}
 
 \newcommand{\infosep}{\makebox[2em][c]{$\bullet$}}
-\newcommand{\MYNAME}{{\Huge \sffamily \bfseries \color{brbg71}\@title}}
-\newcommand{\MyName}{{\Large \sffamily \bfseries \color{brbg71}\@title}}
+\newcommand{\MYNAME}{{\Huge \sffamily \bfseries \color{brbg72}\@title}}
+\newcommand{\MyName}{{\Large \sffamily \bfseries \color{brbg72}\@title}}
 \newcommand{\MYINFO}{{\sffamily \@infoemail\Large \infolinks}}
 \newcommand{\MyInfo}{}
 \makeatother
@@ -122,5 +122,5 @@ anchorcolor=brbg77]{hyperref}
 \renewcommand{\plainheadrulewidth}{0.5pt}
 \renewcommand{\headrule}{\vspace{-7pt}\vbox to 0pt{%
   \hbox to\headwidth{%
-    \color{brbg71}\leaders\hrule height \plainheadrulewidth\hfill}}}
+    \color{brbg72}\leaders\hrule height \plainheadrulewidth\hfill}}}
 \pagestyle{fancyplain}
